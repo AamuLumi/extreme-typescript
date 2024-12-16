@@ -53,6 +53,10 @@ type EQ<A extends TypeNumber, B extends TypeNumber> = A extends B
 	? true
 	: false;
 
+type NEQ<A extends TypeNumber, B extends TypeNumber> = A extends B
+	? false
+	: true;
+
 type IF<
 	C extends ComparisonOperator,
 	TrueCase extends Instruction = I_DoNothing,
