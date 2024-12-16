@@ -66,31 +66,29 @@ namespace Brainfuck {
 	type IncrementCell<
 		Memory extends Array<TypeNumber>,
 		CurrentCell extends TypeNumber,
-	> = Memory extends [infer Current, ...infer Rest]
-		? CurrentCell extends TypeNumber
-			? Rest extends Array<TypeNumber>
-				? IF<
-						EQ<CurrentCell, Zero>,
-						[Add<Memory[ToRealNumber<CurrentCell>], One>, ...Rest],
-						[Current, ...IncrementCell<Rest, Sub<CurrentCell, One>>]
-					>
-				: never
-			: never
+	> = Memory extends [
+		infer Current extends TypeNumber,
+		...infer Rest extends Array<TypeNumber>,
+	]
+		? IF<
+				EQ<CurrentCell, Zero>,
+				[Add<Memory[ToRealNumber<CurrentCell>], One>, ...Rest],
+				[Current, ...IncrementCell<Rest, Sub<CurrentCell, One>>]
+			>
 		: [Zero];
 
 	type DecrementCell<
 		Memory extends Array<TypeNumber>,
 		CurrentCell extends TypeNumber,
-	> = Memory extends [infer Current, ...infer Rest]
-		? CurrentCell extends TypeNumber
-			? Rest extends Array<TypeNumber>
-				? IF<
-						EQ<CurrentCell, Zero>,
-						[Sub<Memory[ToRealNumber<CurrentCell>], One>, ...Rest],
-						[Current, ...DecrementCell<Rest, Sub<CurrentCell, One>>]
-					>
-				: never
-			: never
+	> = Memory extends [
+		infer Current extends TypeNumber,
+		...infer Rest extends Array<TypeNumber>,
+	]
+		? IF<
+				EQ<CurrentCell, Zero>,
+				[Sub<Memory[ToRealNumber<CurrentCell>], One>, ...Rest],
+				[Current, ...DecrementCell<Rest, Sub<CurrentCell, One>>]
+			>
 		: [Zero];
 
 	type AddCellIfNeeded<

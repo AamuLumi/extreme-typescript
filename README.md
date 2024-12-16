@@ -5,7 +5,8 @@ This repository contains my work on doing stupid things with only Typescript typ
 ## Available
 
  - [Integer calculator](./src/integer-calculator.ts) // [Article](https://aamulumi.info/Dev/The-Useless-Type-Calculator-in-Typescript)
- - [Sort algorithm](./src/sort-algorithm.ts)
+ - [Sort algorithm](./src/sort-algorithm.ts) // [Article](https://aamulumi.info/Dev/The-Useless-Type-Array-Sorter-in-Typescript)
+ - [Brainfuck compiler](./src/brainfuck-compiler.ts)
 
 ## Current work
 
